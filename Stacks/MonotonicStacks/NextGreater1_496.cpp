@@ -57,8 +57,6 @@ vector<int> Mysol(vector<int> A, vector<int> B)
     return ans;
 }
 
-
-
 vector<int>OPTIMAL(vector<int>A,vector<int>B)
 {
     stack<int>st;
