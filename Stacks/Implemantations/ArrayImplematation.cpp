@@ -1,48 +1,49 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-//Implementing a stack(LIFO) using arrays
+// Implementing a stack(LIFO) using arrays
 
 class stack
 {
-    public:
-    int top=-1;
-    int st[100];//100 is max size of stack
+public:
+    int top = -1;
+    int st[100]; // 100 is max size of stack
 
-//!ALL FUNCTIONS BELOW HAVE O(1) T.C and O(100) S.C(array of 100)
-//push function(inserts)
+    //! ALL FUNCTIONS BELOW HAVE O(1) T.C and O(100) S.C(array of 100)
+    // push function(inserts)
     void push(int x)
     {
-     if(top>=100)
-     { cout<<"overflow"; return; }
+        if (top >= 100)
+        {
+            cout << "overflow";
+            return;
+        }
 
-    top++;
-    st[top]=x;    
+        top++;
+        st[top] = x;
     }
-    //pop function(removes)
+    // pop function(removes)
     void pop()
     {
-        if(top==-1)
+        if (top == -1)
         {
-            cout<<"stack empty";
+            cout << "stack empty";
             return;
         }
         top--;
     }
-    //top function(return the last element inserted)
+    // top function(return the last element inserted)
     int top()
     {
-        if(top==-1)
+        if (top == -1)
         {
-            cout<<"stack empty";
+            cout << "stack empty";
             exit(0);
         }
         return st[top];
     }
 
-    int size()//return size of stack(total elements in stack)
+    int size() // return size of stack(total elements in stack)
     {
-        return top+1;
-    } 
-
-
+        return top + 1;
+    }
 };

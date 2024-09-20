@@ -36,34 +36,46 @@ Explanation: The 2 and -5 collide resulting in -5. The 10 and -5 collide resulti
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<int> Mysol(vector<int> v) {
+vector<int> Mysol(vector<int> v)
+{
     stack<int> st;
     int n = v.size();
-    
-    for (int i = 0; i < n; i++) {
-        if (st.empty() || st.top() < 0 || v[i] > 0) {
+
+    for (int i = 0; i < n; i++)
+    {
+        if (st.empty() || st.top() < 0 || v[i] > 0)
+        {
             // No collision possible, just push the current asteroid
             st.push(v[i]);
-        } else {
+        }
+        else
+        {
             // Collision possible (st.top() > 0 and v[i] < 0)
             bool destroyed = false; // Flag to check if the current asteroid is destroyed
 
-            while (!st.empty() && st.top() > 0 && !destroyed) {
-                if (abs(v[i]) == st.top()) {
+            while (!st.empty() && st.top() > 0 && !destroyed)
+            {
+                if (abs(v[i]) == st.top())
+                {
                     // Both asteroids are of equal size, destroy both
                     st.pop();
                     destroyed = true;
-                } else if (abs(v[i]) > st.top()) {
+                }
+                else if (abs(v[i]) > st.top())
+                {
                     // The incoming asteroid destroys the one at the top
                     st.pop();
-                } else {
+                }
+                else
+                {
                     // The asteroid at the top survives, and the current one is destroyed
                     destroyed = true;
                 }
             }
 
             // If the current asteroid was not destroyed, push it to the stack
-            if (!destroyed) {
+            if (!destroyed)
+            {
                 st.push(v[i]);
             }
         }
@@ -71,11 +83,11 @@ vector<int> Mysol(vector<int> v) {
 
     // Extract the result from the stack
     vector<int> ans;
-    while (!st.empty()) {
+    while (!st.empty())
+    {
         ans.push_back(st.top());
         st.pop();
     }
     reverse(ans.begin(), ans.end()); // Reverse the result to get the correct order
     return ans;
 }
-

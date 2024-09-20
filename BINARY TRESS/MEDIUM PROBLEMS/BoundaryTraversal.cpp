@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 class TreeNode
 {
 public:
@@ -7,79 +8,90 @@ public:
     TreeNode *right;
     int val;
 };
-// Do clockwise and anticlokwise boundary traversal
-//! boundary traversal may or may not include all nodes
 
-// Anti-clockwise
-
-
-
-
-vector<int> LeftADD(TreeNode *root)
+void LeftADD(TreeNode *root, vector<int> &ans)
 {
-    vector<int> ans;
-    ans.push_back(root->val);
-    TreeNode *temp = root->left;
-    // inserting all left nodes
-    while (1)
-    {
-        if (temp->left == NULL && temp->right == NULL)
-        {
-            break;
-        }
-        while (temp != NULL)
-        {
+    if (root == NULL || (root->left == NULL && root->right == NULL))
+        return;
 
-            ans.push_back(temp->val);
-            temp = temp->left;
-        }
-        temp = temp->right;
-        ans.push_back(temp->val);
-    }
-    return ans;
+    ans.push_back(root->val);
+
+    if (root->left != NULL)
+        LeftADD(root->left, ans);
+    else if (root->right != NULL)
+        LeftADD(root->right, ans);
 }
 
-vector<int> ADDleaf(TreeNode *root)
+void ADDleaf(TreeNode *root, vector<int> &ans)
+{
+    if (root == NULL)
+        return;
+    if (root->left == NULL && root->right == NULL)
+    {
+        ans.push_back(root->val);
+        return;
+    }
+    ADDleaf(root->left, ans);
+    ADDleaf(root->right, ans);
+}
+
+void ADDReverseRight(TreeNode *root, vector<int> &ans)
+{
+    stack<int> st;
+    TreeNode *temp = root;
+
+    while (temp != NULL)
+    {
+        st.push(temp->val);
+        if (temp->right != NULL)
+            temp = temp->right;
+        else
+            temp = temp->left;
+    }
+
+    while (!st.empty())
+    {
+        ans.push_back(st.top());
+        st.pop();
+    }
+}
+
+vector<int> BoundaryTraversal(TreeNode *root)
 {
     vector<int> ans;
     if (root == NULL)
-    {
         return ans;
-    }
-    ADDleaf(root->left);
-    ans.push_back(root->val);
-    ADDleaf(root->right);
+
+    // Add the left boundary
+    LeftADD(root->left, ans);
+
+    // Add the leaf nodes
+    ADDleaf(root, ans);
+
+    // Add the right boundary in reverse order
+    vector<int> rightBoundary;
+    ADDReverseRight(root->right, rightBoundary);
+    ans.insert(ans.end(), rightBoundary.begin(), rightBoundary.end());
+
+    return ans;
 }
 
-vector<int> ADDReverseRight(TreeNode *root)
+int main()
 {
-    vector<int> ans;
-    stack<int> st;
-    TreeNode*temp=root;
-    while (1)
+    // Example usage
+    TreeNode *root = new TreeNode(1);
+    root->left = new TreeNode(2);
+    root->right = new TreeNode(3);
+    root->left->left = new TreeNode(4);
+    root->left->right = new TreeNode(5);
+    root->right->right = new TreeNode(6);
+
+    vector<int> result = BoundaryTraversal(root);
+    for (int val : result)
     {
-        if (temp->left == NULL && temp->right == NULL)
-        {
-            while (!st.empty())
-            {
-                ans.push_back(st.top());
-                st.top();
-            }
-            return ans;
-        }
-        while(temp->right!=NULL)
-        {
-        temp=temp->right;
-        ans.push_back(temp->val);
-        }
-        temp=temp->left;
-        ans.push_back(temp->val);
-
+        cout << val << " ";
     }
-}
+    cout << endl;
 
-vector<int>BoundaryTraversal(TreeNode*root)
-{
-    vector<int>ans;
-    
+    return 0;
 }
