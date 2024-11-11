@@ -8,11 +8,12 @@ public:
     int data;
 };
 
-vector<int> AddReverseLeft(Node *root)
+vector<int> AddReverseLeft(Node *root)//!ROOT NOT INCLUDED
 {
 
     vector<int> v;
     stack<int> st;
+    root=root->left;
     while (root != NULL)
     {
         st.push(root->data);
@@ -26,7 +27,7 @@ vector<int> AddReverseLeft(Node *root)
     return v;
 }
 
-vector<int> AddReverseRight(Node *root)
+vector<int> AddReverseRight(Node *root)//!ROOT NOT INCLUDED
 {
     vector<int> ans;
     root = root->right;
@@ -42,9 +43,10 @@ vector<int> AddReverseRight(Node *root)
         ans.push_back(st.top());
         st.pop();
     }
+    return ans;
 }
 
-vector<int> TopView(Node *root)
+vector<int> topView(Node *root)
 {
    vector<int>ans; 
    if(root==NULL)
@@ -55,7 +57,10 @@ vector<int> TopView(Node *root)
    vector<int>left=AddReverseLeft(root);
    vector<int>right=AddReverseRight(root);
 
-   merge(left.begin(),left.end(),right.begin(),right.end(),ans.begin());
+   ans.insert(ans.end(),left.begin(),left.end());
+   ans.push_back(root->data);
+   ans.insert(ans.end(),right.begin(),right.end());
+
 
     return ans;
 }

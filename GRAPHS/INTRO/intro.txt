@@ -1,0 +1,30 @@
+vertex:- nodes of graphs
+edge:- a line connecting two vertex
+Degree of a vertex(UNDIRECTED GRAPH):- total edges connected to that vertex 
+OutDegree of a vertex:-total outgoing edges in a vertex(Directed Graph)
+Indegree:-total incoming edges in a graph(Directed Graph)
+Path:- a set of vertexes with no duplicate vertexe, where all the vertexes are conected indirectly
+or directly
+
+Types of Graph:-
+Directed:- Edges have direction UNDIRECTED:-Edges do not have direction
+cyclic:-if we start from a node, we should be able to come back to that node(true for every node)
+
+IMPORTANT RELATION:-
+Sum of Degrees of all vertexes=2*(number of EDGES)
+
+INPUT FORMAT:
+directed or undirected(will be given)
+G:(n,m)  Means there is a graph G with n nodes and m edges
+
+after this we give info of edges(which two vertexes are conected)
+if it is undirected graph writing a,b means vertex a and b are conected with an 
+undirected edge(means a is conected to b and b is connected to a)
+
+if G is direcetd then writing a,b means a is connected to b only(not vice versa)
+
+a,b
+c,d
+.
+.
+. m times(as there are m edges)

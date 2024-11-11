@@ -1,0 +1,5 @@
+/*BST have left node smaller than root node, right node bigger than root ndoe
+L<ROOT<R (for every node)
+height is always almost Log_2 N
+search time is Log(N)  (in normal BT it is O(N))
+*/

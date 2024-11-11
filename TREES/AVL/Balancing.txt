@@ -1,0 +1,17 @@
+Deciding Direction of balance
+
+key is the data of new node to which tree became unbalanced
+
+1>If our balance factor is greater than 1, then our first direction is left
+  LL: If our key<root->left->data then we perform an LL balance
+  LR  if our key>root->left->data then we perfrom LR
+
+
+
+If our bf is less then -1 out first direction is right
+
+RL:root->right->data>key
+
+RR:root->right->data<key
+
+Do decide further 

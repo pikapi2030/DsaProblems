@@ -1,0 +1,23 @@
+a graph can be made of sevral different graphs
+let a graph A made of graph B,C,D then componets of graph A are B,C,D
+B,C,D are NOT connected with each other, but B,C,D do not have their own componets
+
+let's assume we have a traversal algorithm which traverses all nodes of a graph if starting
+from one of the nodes of the graph(the graph should not have any componets)
+
+so to travese A we maintain a visited array(bool) of size N,(N is number of nodes)
+
+lets assume B has 3 nodes a,b,c connected if we start from a and call traversal_algo(a)
+we will visit nodes a,b,c and out visited of a,b,c will be marked as 1
+not we to to b (according to the vis array) but is it is already visited
+
+similary we will visit all the nodes of C and then D without visited any component two times
+as we traverse all nodes of B,C,D we can say we have traverses A
+
+for(int i=0;i<N;i++)
+{
+    if(visited[i]==0)
+    {
+        travesal_Algo(i);
+    }
+}

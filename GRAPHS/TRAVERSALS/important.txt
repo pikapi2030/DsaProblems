@@ -1,0 +1,2 @@
+During all travesals we maintain a visited array to avoid 
+printing a node twice

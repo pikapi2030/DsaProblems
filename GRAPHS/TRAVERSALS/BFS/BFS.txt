@@ -1,0 +1,8 @@
+BFS in graphs means travsing by finding neax neghbours of previously travesed node
+travesing them, doing until every node is travesed
+
+to get a BFS we need to set a node as a starting point(things like root node is only in trees)
+we use a queue to do BFS
+once we select our staring point, we check it's neghbours in our adjacency list
+and traverse them
+    
