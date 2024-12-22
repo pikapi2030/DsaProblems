@@ -1,0 +1,29 @@
+. a heap is a complete binary tree(CBT)
+. a CBT is a BT with all leves fiiled completly except the last level(can be filled),
+insertion of nodes should be from left side first
+
+Types Of Heaps
+Min Heap:-
+parent node is smaller then both child nodes(applicable for every  node)
+
+Max Heap :-
+parentnode is larger than both child nodes(applicable for every node)
+------------------------------------------
+Insertion:-
+Brute way:
+to insert a node,we first have to find an empty space in heap to insert(from left)(to fulfil CBT)
+then after insertion, we have to satisfy conditon of min or max heap
+for ex:- in a max heap, if we insert 59
+it would be at bottom before restoring the property of heaps,
+we will swap the parent node of 59 with 59  till  parent is smaller then 59 
+T.C:-  O(n)(to find the empty space for insertion) +O(height)(swaping)
+S.C:- O(1)
+better way:-
+we use an array to reduce T.C of insertion
+
+array contains elements to be inserted in order( indexed from 0)
+
+parent of ith node= (i-1)/2 (floor) 
+child of ith node= 2*i+1(left), (2*i)+2 (right)
+
+  

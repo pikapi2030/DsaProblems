@@ -1,0 +1,10 @@
+Topo sort is only possible in directed acyclic graphs
+there can be multiple ways to topo sort a graphs
+
+topo sorting means to give a specific order of nodes such that node appearing first lets say u
+and node appearing after u, lets say v, u should have directed edge to v (u->v)
+and not v->u
+
+
+
+

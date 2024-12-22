@@ -1,0 +1,11 @@
+a SpaningTree is a Weighted tree with n nodes, n-1 edges, where every edge is 
+indirectly connected by other every other edge
+
+A minimum SpaningTree is a SpaningTree with minimum total sum of  weights
+
+1-> If each edge has a distinct weight then there will be only one & unique MST.
+2-> A complete undirected graph can have n^(n-2) number of Spanning Trees. For example :
+ Consider a triangle which have 3 vertices and 3 edges so n=3 || 3^(3-2) => 3.
+  Hence , it would have 3 spanning trees.
+3-> From a Complete graph by removing max(e-n+1) edges, we can construct a Spanning Tree.
+
