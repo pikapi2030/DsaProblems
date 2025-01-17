@@ -1,30 +1,53 @@
 #include <bits/stdc++.h>
 using namespace std;
-int MST(int V,vector<vector<int>>adj[])
-{
-    int sum=0;
-    vector<int>vis(V,0);
-    priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>>pq;
-    pq.push({0,0});//wt,node
-    while(!pq.empty())
-    {
-        auto it=pq.top();
-        pq.pop();
-        int wt=it.first;
-        int node=it.second;;
-        if(vis[node]==1){continue; }
-        vis[node]=1;
-        sum+=wt;
-        for(auto it:adj[node])
-        {
-            if(vis[it[0]]==0)
-            {
-                pq.push({it[1],it[0]});
-            }
 
-        }
+int main() {
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        int n;
+        cin>>n;
         
+	vector<int>a;
+	vector<int>b;
+	for(int i=0;i<n;i++)
+	{
+	    cin>>a[i];
+	}
+	for(int i=0;i<n;i++)
+	{
+	    cin>>b[i];
+	}
+	
+	int aSum=0;
+	int bSum=0;
+	for(int i=0;i<n;i++)
+	{
+	    aSum=aSum+a[i];
+	    bSum=bSum+b[i];
+	}
+	if(aSum%2!=0||bSum%2!=0)
+	{
+	    cout<<"YES";
+	    return 0;
+	}
+	int ors=0;
+	int an=0;
+	for(int i=0;i<n;i++)
+	{
+	    ors=ors+(a[i]||b[i]);
+	    an=an+(a[i]&&b[i]);
+	}
+	if(ors%2!=0||an%2!=0)
+	{
+	    cout<<"YES";
+	    return 0;
+	}
+	cout<<"NO";
+	return 0;
+	
     }
-    return sum;
+	
 
 }
