@@ -56,7 +56,7 @@ int modifiedBFS(vector<vector<int>> oranges)
             if (neighbourColumn >= 0 && neighbourColumn < n && neighourRow >= 0 && neighourRow < m && vis[neighourRow][neighbourColumn] == 0 && oranges[neighourRow][neighbourColumn] == 1)
             {
                 vis[neighourRow][neighbourColumn] = 2;
-
+                
                 q.push({{neighourRow, neighbourColumn}, t + 1});
             }
         }

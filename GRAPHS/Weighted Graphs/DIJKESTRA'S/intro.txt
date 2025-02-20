@@ -1,0 +1,19 @@
+dijkestra's algo is used to calculate shortest path from source node to distance node
+it uses BFS traversal with a priority queue or a set for better TC
+
+using set or a pq reduce redudant pairs by a lot, compensating for their more TC than queue
+
+important points:-
+when weights are uniform, it is better to use normal queue instead of a PQ, 
+as queue already stores pairs in sorted order(so no redundant pairs)
+
+Note: The Dijkstra's algorithm  can handle any negative edges graph EXCEPT the following cases:
+1- Directed graph having any negative cycle (cycle with sum < 0)
+2- Undirected graph having any negative edge because the edge in 
+undirected graph is by itself a cycle
+
+There is no point of finding shortest path in an undirected graph with negative weight
+(answer is -infinity)
+
+to Detect negative ccles in a directed graph we use Bellman Ford algorithm
+

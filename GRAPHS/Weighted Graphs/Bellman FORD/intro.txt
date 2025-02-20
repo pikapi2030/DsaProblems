@@ -1,0 +1,18 @@
+this algorithm is used to find shortest path from source, and it can detect negative cycles
+in a graph as well
+to use it in undirected graph, we have to convert the undirected edges into directed edges
+
+Realxing of edges:-
+if we find a better way to reach jth edge, we will update the minDist[j]=newdist,
+minDist is an array which keeps track of min dist till now to reach ith node =minDist[i]
+
+we perform this relaxation N-1 times on a random given list of edges,
+after N-1 iterations, minDist is guranteed to give min dist , if there are no negative cycles
+
+if there are negative cycles, our minDist will keep updating on any number of iterations
+as there is not shortest path since travesing through the negative cycle reduces cost 
+
+so in the end we will check if for the Nth relaxation our misDist got updated,
+if it did then our graph has negative cycles and return {-1}
+
+ 

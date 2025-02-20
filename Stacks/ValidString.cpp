@@ -13,7 +13,7 @@ Leetcode :20
 /*OPTIMAL
 we use a stack to solve this problem
 when ever we see a opening braket we store it in a stack,
-when ever we see a closing braket we check if the top of stack is equal to closing
+when ever we see a closing braket we check if the top of stack is equal to opening
 braket than our string is valid till now and we pop the opening braket present before
 
 if we encounter a closing braket first before a opening bracket(invalid) then our stack would

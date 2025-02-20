@@ -1,13 +1,12 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 
 class ListNode
 {
-    public:
-    int data;
-    ListNode*next;
+public:
+  int data;
+  ListNode *next;
 };
-
 
 /*
 Find start of a lopp if loop is present
@@ -19,20 +18,20 @@ T.C O(N*2LOG N) insert and find function both take logN(may vary for different m
 S.C O(N)
 */
 
-ListNode*BRUTE(ListNode*head)
+ListNode *BRUTE(ListNode *head)
 {
-map<ListNode*,int>mp;
-ListNode*temp=head;
-while(temp!=NULL)
-{
-    if(mp.find(temp)!=mp.end())
+  map<ListNode *, int> mp;
+  ListNode *temp = head;
+  while (temp != NULL)
+  {
+    if (mp.find(temp) != mp.end())
     {
-    return temp;
+      return temp;
     }
-    mp[temp]=1;
-    temp=temp->next;
-}
-return NULL;
+    mp[temp] = 1;
+    temp = temp->next;
+  }
+  return NULL;
 }
 
 /*OPTIMAl
@@ -45,29 +44,24 @@ move both of them by 1 step, where they will collide is the starting point
 T.C O(N+distance b/w loop and starting point)(if no loop then O(n))
 */
 
-ListNode* OPTIMAL(ListNode*head)
+ListNode *OPTIMAL(ListNode *head)
 {
-    ListNode*slow=head;
-    ListNode*fast=head;
-    while(fast!=NULL&&fast->next!=NULL)
+  ListNode *slow = head;
+  ListNode *fast = head;
+  while (fast != NULL && fast->next != NULL)
+  {
+    slow = slow->next;
+    fast = fast->next->next;
+    if (fast == slow) // loop detected, move one pointer to head, them move them one step, collison is starting point
     {
-        slow=slow->next;
-        fast=fast->next->next;
-        if(fast==slow)//loop detected, move one pointer to head, them move them one step, collison is starting point
-        {
-          slow=head;
-          while(slow!=fast)
-          {
-            slow=slow->next;//BOTH BY ONE STEP
-            fast=fast->next;
-          }  
-          return fast;// or slow(both have collided at the starting point)
-        }
+      slow = head;
+      while (slow != fast)
+      {
+        slow = slow->next; // BOTH BY ONE STEP
+        fast = fast->next;
+      }
+      return fast; // or slow(both have collided at the starting point)
     }
-    return NULL;
-
+  }
+  return NULL;
 }
-
-
-
-

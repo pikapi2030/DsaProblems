@@ -1,0 +1,19 @@
+this algo is used to find shortest path from every node to every other node, and it can 
+detect negative cycles
+If there are no negtive cycles then simply 
+perform dijkestra on every node for better T.C (V*ELOGV)
+
+T.C O(N^3)
+S.C O(N^2)
+
+we have three loops nested over each other
+outer loops traveses till n, it determines the via node
+in this algo we pick a via node and try to find shortest path from a to b passing
+through that via node, we do this for every node a,b 
+
+so the inner two loops are to traverse every node in the adjMatrix
+
+after completeing all iterations, if our adj matrix contain a cell such that
+cost[i][i]<0 (which should not be possible, until there is a negative cycle)
+then there is negative cycle present
+
