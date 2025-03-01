@@ -26,6 +26,8 @@ Output: [3, 100]
 Explanation: Job1, Job3 and Job4 can be completed with a maximum profit of 100 (50 + 20 + 30)
 */
 
+/*T.C O(nlogn +n*(maxDeadline))  S.C O(maxDeadline+1){hash array}
+*/
 void VectorOfpairPrint(vector<pair<int,int>>v)
 {
     for(auto it:v)
@@ -79,13 +81,3 @@ vector<int> JobSequencing(vector<int> &id, vector<int> &deadline, vector<int> &p
     return {jobsDone,ans};
 }
 
-int main()
-{
-    vector<int>id={1,2,3,4};
-    vector<int>deadline={4,1,1,1};
-    vector<int>profit={20,1,40,30};
-    vector<pair<int, int>> combine;
-   
-
-    
-}
