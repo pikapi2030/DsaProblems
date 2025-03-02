@@ -1,0 +1,7 @@
+1.if number of iteration depends on division of N by a
+time complexity will be O(log_10 N)
+example 
+while(n!=0)
+{
+    n=n/10;
+}
