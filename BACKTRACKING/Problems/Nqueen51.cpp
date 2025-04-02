@@ -126,5 +126,5 @@ vector<vector<vector<int>>> Nqueen(int k)
 int main()
 {
     vector<vector<vector<int>>>ans=Nqueen(6);
-    MatrixesPrinter(ans);
+    cout<<ans.size();
 }

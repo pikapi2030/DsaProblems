@@ -30,7 +30,7 @@ while(!pq.empty())
     }
 }
 pair<int,int>ans;
-ans.first=dist[p];
+ans.first=dist[P];
 ans.second=road[p];
 return ans;
 
