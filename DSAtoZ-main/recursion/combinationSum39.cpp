@@ -36,6 +36,7 @@ Output: []
 we will use the pick-not pick apraoch but we will not move to the next index until our
 target-(sum of all picked elements) is not 0 or negative, as we can pick a element infinite 
 times
+//!T.C O(k*2^n) k=average lenght of each combination
 */
 
 void helper(vector<int>& candidates, int target, vector<vector<int>>& ans, int index, vector<int>& temp, int curSum)

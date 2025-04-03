@@ -1,21 +1,44 @@
 #include <bits/stdc++.h>
 using namespace std;
-
-long long maximumTripletValue(vector<int>& v) 
+void matrixPrinter(const vector<vector<int>> &v)
 {
-int n=v.size();    
-long long maxSoFar=v[0];
-long long maxDiff=0;
-long long maxTriplet=0;
-
-for(int i=0;i<n-1;i++)
-{
- maxSoFar=max((long long)v[i],maxSoFar);
- maxDiff=max(maxDiff,maxSoFar-(long long)v[i]);
- maxTriplet=max(maxTriplet, maxDiff*(long long)v[i+1]);
+   for(int i=0;i<v.size();i++)
+   {
+    for(auto it:v[i])
+    {
+        cout<<" "<<it<<" ";
+    }
+    cout<<endl;
+   }
 }
 
-return maxTriplet;
 
 
+void helper(vector<int> &v, vector<int> &temp, vector<vector<int>> &ans, int index)
+{
+    if (index == v.size())
+    {
+        return;
+    }
+    for (int i = index; i < v.size(); i++)
+    {
+        temp.push_back(v[i]);
+        ans.push_back(temp);
+        helper(v, temp, ans, i + 1);
+        temp.pop_back();
+    }
+}
+vector<vector<int>> allSubsets(vector<int>v)
+{
+    vector<int>temp;
+    vector<vector<int>>ans;
+    helper(v,temp,ans,0);
+    return ans;
+
+}
+
+int main()
+{
+vector<int>v={1,2,3};
+matrixPrinter(allSubsets(v));
 }

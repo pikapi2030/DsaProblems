@@ -41,9 +41,11 @@ void matrixPrinter(const vector<vector<int>> &v)
     for(auto it:v[i])
     {
         cout<<" "<<it<<" ";
+        
     }
     cout<<endl;
    }
+   
 }
 
 void helper(const vector<int> &v, vector<int> &temp, vector<vector<int>> &ans,int index)
