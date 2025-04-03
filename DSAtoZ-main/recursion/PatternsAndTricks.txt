@@ -1,0 +1,57 @@
+1)
+if we need to count number of sunsequences with sum=k
+
+if(base case)
+{
+    return 1;
+}
+else (return 0;)
+
+int left=F(left call)
+int right=F(right call)
+
+return left+right;
+
+2) store all subsequence with sum k
+
+if(index==n)//here index does not represent size of temp but where are we at our main array in terms of pick and not-pick
+{
+if(sum==k)
+{
+    store the subsequence
+}
+
+}
+
+temp.push(index)//pick
+sum+=v[index]//add the sum
+F(index+1,temp)//call
+temp.pop_back(index)//not pick (need to pop as temp is passed by reference, so to not pick I have to remove the last picked )
+sum-=v[index]//remove the sum
+F(index+1,temp)//call the function
+
+3) to store only one subsequence with sum k (any possible subsequence)
+
+we will make a boolean function
+if(index=n)
+{
+if(sum==k)
+{
+    return true;
+}
+else return false;
+}
+
+temp.push(v[index]);
+sum+=v[index];
+if(F(temp,index+1)==true)//if one subsequence is found then no need to do further operations
+{
+    return true;
+}
+temp.pop();
+sum-=v[index];
+if(F(temp,index+1)==true)
+{
+    return true;
+}
+return false;

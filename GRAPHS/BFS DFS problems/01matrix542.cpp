@@ -11,7 +11,7 @@ The distance between two adjacent cells is 1.
 we will solve it using BFS, we have to find nearest 0 for each cell, if a cell is 0
 it's nearest 0 is itself so distance is 0
 now we start bfs from 0 and go towards 1(if not visited)
- and calculate the time it took to reach one,
+and calculate the time it took to reach one,
 that is our distance, then we make that one a zero and find other ones
 
 we do this with every zero

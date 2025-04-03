@@ -14,6 +14,26 @@ example:- 1,2,3
 !3,1 is not a subsequence (not in the order of array)
 */
 //! T.C O(2^N)  S.C O(N)
+
+/*aproach
+we use pick , not pick aproach
+F(temp,i) indicates that this function will call two function 
+in one it will push the ith index in temp, 
+in other one it will not push the ith index in temp(basically pop it by backtracking)
+F(temp,i) will call F(temp,i+1) in both cases, but temp will be different of both cases
+here the index i does not represent size of temp in anyway
+
+the recursion tree of this code is a binary tree
+example {1,2,3}
+
+                                            F({},0)
+                    F({1},1)                                         F({},1)
+        F({1,2},2)              F({1},2)                   F({2},2)           F({},2)   
+F({1,2,3},3) F({1,2},3)   F({1,3},3)  F({1},3)      F({2,3},3) F({2},3)   F({3},3) F({},3)                                 F({},3)
+
+output: 123 12 13 1 23 2 3 
+*/
+
 void matrixPrinter(const vector<vector<int>> &v)
 {
    for(int i=0;i<v.size();i++)
