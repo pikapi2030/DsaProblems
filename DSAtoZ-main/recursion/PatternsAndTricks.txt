@@ -55,3 +55,18 @@ if(F(temp,index+1)==true)
     return true;
 }
 return false;
+
+Pick not pick aproach is better in calculating 
+ total sum of ( anyMathsCalculation(subset_1)+anyMathsCalculation(subset_2)....)
+ it can do it in O(1) SPACE(ignoring recursion stack space), without even generating the subsets
+ T.C O(2^n) instead of O(n*2^n) (extra n to perform that mathmatical operation on every subset)
+
+HERE * REFERS AS ANY BINARY OPERATOR (+,-,xor ..)
+
+if(index==n){return ans;}
+int pick=helepr(nums,ans*nums[index],index+1)
+int notPick=helepr(nums,ans,index+1)
+
+retrun pick+not pick
+
+EXAMPLE SEE: sumOfALLsubsetXOR (in bit manuplation FOLDER)
