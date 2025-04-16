@@ -61,9 +61,11 @@ bool subsetSumK(vector<int> &nums, int k)
             dp[index][0] = true; // if target==0 return true;
         }
     }
-
+    if(nums[0]<=k)
+    {
     dp[0][nums[0]] = true; // if(index==0){return target==nums[0] }
     // now perform a nested iteration as 2D dp is used
+    }
     for (int index = 1; index < n; index++)
     {
         for (int target = 1; target < k + 1; target++)
