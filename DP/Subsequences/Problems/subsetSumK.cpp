@@ -47,6 +47,7 @@ bool subsetSumk(vector<int> &nums, int k)
 since there two changing states in function and we used a 2d dp array we will use two nested
 loops for tabulation
 we will first set the base cases
+//! DP[i][j] tell me if sum j is possible till index i
 */
 
 bool subsetSumK(vector<int> &nums, int k)
