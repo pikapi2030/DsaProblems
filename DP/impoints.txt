@@ -1,0 +1,5 @@
+tabulation to space optimisation (pick, not pick)
+for base cases use prev
+if we are doing  dp[index-1][...] then raplace it with prev[...]
+if we are doinf dp[index][...] replace it with cur[...]
+at end do prev=cur 

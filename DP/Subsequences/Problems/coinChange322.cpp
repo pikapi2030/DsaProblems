@@ -114,35 +114,71 @@ int memoisation(vector<int> &coins, int amount)
 int tabulation(vector<int> &coins, int amount)
 {
     int n = coins.size();
-    vector<vector<int>> dp(n, vector<int>(amount + 1,1e9));
-    for(int target=0;target<=amount;target++)//index=0
+    vector<vector<int>> dp(n, vector<int>(amount + 1, 1e9));
+    for (int target = 0; target <= amount; target++) // index=0
     {
-      if(target%coins[0]==0)
-      {
-        dp[0][target]=target/coins[0];
-      }
-    }
-    for(int index=0;index<n;index++)
-    {
-        dp[index][0]=0;
-    }
-    for(int index=1;index<n;index++)
-    {
-        for(int target=1;target<=amount;target++)
+        if (target % coins[0] == 0)
         {
-            int notPick=dp[index-1][target];
-            int pick=1e9;
-            if(target>=coins[index])
-            {
-                
-                pick=1+dp[index][target-coins[index]];//infinite suplies so dp[INDEX][target]
-                
-            }
-            dp[index][target]=min(pick,notPick);
+            dp[0][target] = target / coins[0];
         }
     }
-    if(dp[n-1][amount]==1e9){return -1;}
-    return dp[n-1][amount];
+    for (int index = 0; index < n; index++)
+    {
+        dp[index][0] = 0;
+    }
+    for (int index = 1; index < n; index++)
+    {
+        for (int target = 1; target <= amount; target++)
+        {
+            int notPick = dp[index - 1][target];
+            int pick = 1e9;
+            if (target >= coins[index])
+            {
 
+                pick = 1 + dp[index][target - coins[index]]; // infinite suplies so dp[INDEX][target]
+            }
+            dp[index][target] = min(pick, notPick);
+        }
+    }
+    if (dp[n - 1][amount] == 1e9)
+    {
+        return -1;
+    }
+    return dp[n - 1][amount];
 }
+// space optimisation
+int spaceOpt(vector<int> &coins, int amount)
+{
+    int n = coins.size();
+    vector<int> prev(amount + 1, 1e9);
+    vector<int> cur(amount + 1, 1e9);
+    for (int target = 0; target <= amount; target++) // index=0
+    {
+        if (target % coins[0] == 0)
+        {
+            prev[target] = target / coins[0];
+        }
+    }
+    prev[0] = 0;
+    cur[0] = 0;
+    for (int index = 1; index < n; index++)
+    {
+        for (int target = 1; target <= amount; target++)
+        {
+            int notPick = prev[target];
+            int pick = 1e9;
+            if (target >= coins[index])
+            {
 
+                pick = 1 + cur[target - coins[index]]; // infinite suplies so dp[INDEX][target]
+            }
+            cur[target] = min(pick, notPick);
+        }
+        prev = cur;
+    }
+    if (prev[amount] == 1e9)
+    {
+        return -1;
+    }
+    return prev[amount];
+}
