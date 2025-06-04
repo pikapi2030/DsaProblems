@@ -47,20 +47,15 @@ vector<vector<int>> Tabulation(string a, string b)
 string findLCS(int n, int m, string &a, string &b)
 {
     vector<vector<int>> tab = Tabulation(a, b);
-    string ans = "";
+    string ans;
     int lengthOfLcs = tab[n][m];
-    for (int i = 0; i < lengthOfLcs; i++)
-    {
-        ans += "$"; // generating a dummy string of size equal to lcs
-    }
+   
     int i = n, j = m;
-    int indexOfLcs = lengthOfLcs - 1; // index is from reverse as string is generated in reverse
     while (i > 0 && j > 0)
     {
         if (a[i - 1] == b[j - 1])
         {
-            ans[indexOfLcs] = a[i - 1]; // i-1 because shifted indexes
-            indexOfLcs--;
+            ans.push_back(a[i - 1]); // i-1 because shifted indexes
             i--;
             j--; // moving to upper diagonal
         }

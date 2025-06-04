@@ -1,0 +1,5 @@
+1>start with full input (all numbers,all elements of array...), represent them uing two pointers
+like i,j  i=0, j=size-1  F(i,j)=my answer considering from i and j
+
+2>try all partitions(run a loop to try all partitions)
+3> return two best partitions
