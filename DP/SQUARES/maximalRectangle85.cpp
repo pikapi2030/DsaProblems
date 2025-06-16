@@ -1,10 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
-/*
-Input: heights = [2,1,5,6,2,3]
-Output: 10
-Explanation: The above is a histogram where width of each bar is 1.
-The largest rectangle is shown in the red area, which has an area = 10 units.
+/*aproach
+we will use largest rec in histogram
+we can observe that this question is largestRecinHisto at every row, we just have to build the
+histoGram for every row and calculate the area at every row and maximise it
 */
 
 vector<int> PreviousSmallerIndexes(vector<int> v)
@@ -58,7 +57,7 @@ vector<int> NextSmallerIndexes(vector<int> v)
     return ans;
 }
 
-int nearOptimal(vector<int> v) // T.C O(3*N) S.C O(3*N)
+int largestRecInHisto(vector<int> v)
 {
     int n = v.size();
     vector<int> PREV = PreviousSmallerIndexes(v);
@@ -73,28 +72,29 @@ int nearOptimal(vector<int> v) // T.C O(3*N) S.C O(3*N)
     }
     return MaxArea;
 }
-// best code
-int largestRectangleArea(vector<int> &histo)//no use of any extra funtions or vectors
+
+int maximalRectangle(vector<vector<char>> &matrix)
 {
-    stack<int> st;
-    int maxA = 0;
-    int n = histo.size();
-
-    for (int i = 0; i <= n; i++)
+    int n = matrix.size();
+    int m = matrix[0].size();
+    int maxArea = 0;
+    vector<int> histo(m, 0);
+    for (int i = 0; i < n; i++)
     {
-        while (!st.empty() && (i == n || histo[st.top()] >= histo[i]))
+        for (int j = 0; j < m; j++)
         {
-            int height = histo[st.top()];
-            st.pop();
-            int width;
-            if (st.empty())
-                width = i;
+            if (matrix[i][j] == '1')
+            {
+                histo[j]++;
+            }
             else
-                width = i - st.top() - 1;
-            maxA = max(maxA, width * height);
+            {
+                histo[j] = 0;
+            }
         }
-        st.push(i);
+        maxArea = max(maxArea, largestRecInHisto(histo));
     }
-
-    return maxA;
+    return maxArea;
 }
+
+//!best aproach:- there is a better code of largest rec in histo which does not use any extra vectors
