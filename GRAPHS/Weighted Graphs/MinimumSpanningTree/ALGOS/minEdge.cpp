@@ -6,10 +6,10 @@ pair<int,int> minsRoad(int V,vector<vector<int>>adj[],int A,int P)
 {
     vector<int>dist(V,INT_MAX);
     vector<int>road(V,INT_MAX);
-priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>>pq;\
+priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>>pq;
 dist[A]=0;
 road[A]=0;
-pq.push({dist[A],A});//
+pq.push({dist[A],A});
 while(!pq.empty())
 {
     auto it=pq.top();
