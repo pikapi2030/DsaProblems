@@ -23,7 +23,12 @@ Output: [15,-1,5]
 */
 
 /*aproach
-we use
+we sort nums, we sort queries according to limit(querie[i][1])
+but since we need answer according to order of queri we create offline queries
+which basically means queries with order changed but orignal index stored as well
+we traverse offline queries, we insert numbers in trie until we reach greater than
+limit of current query, then we calculate maxXor and store in ans vector,
+ans[orignal saved index ]=maxXor calculated by trie data structure
 */
 
 class Node
