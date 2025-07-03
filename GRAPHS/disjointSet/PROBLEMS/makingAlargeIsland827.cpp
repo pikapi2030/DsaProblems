@@ -3,8 +3,7 @@ using namespace std;
 
 class disjointSet
 {
-    public:
-
+public:
     vector<int> rank, parent, size;
 
     disjointSet(int n)
@@ -94,3 +93,93 @@ Input: grid = [[1,1],[1,1]]
 Output: 4
 Explanation: Can't change any 0 to 1, only one island with area = 4.
 */
+
+/*approach
+connect all 1's
+at every 0, check all 4 directions, if 1 is neghbour, add it's ultParent to a set(set to avoid same ult parents)
+after checking all 4, add size of componets whoose parents are present in set,
+also add +1 to the final sum ( taking account of 0 chaning to 1(not actually changing))
+maximise this sum
+*/
+
+int largestIsland(vector<vector<int>> &grid) // n*n
+{
+    int n = grid.size();
+    int sum = 0;
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            sum += grid[i][j];
+        }
+    }
+    if (sum == n * n) // if all ones
+    {
+        return sum;
+    }
+
+    disjointSet dj(n * n);
+    vector<int> dr = {0, 1, 0, -1};
+    vector<int> dc = {1, 0, -1, 0};
+    // connect 1 components to each other
+    for (int row = 0; row < n; row++)
+    {
+        for (int col = 0; col < n; col++)
+        {
+            if (grid[row][col] == 0)
+            {
+                continue;
+            }
+            for (int i = 0; i < 4; i++)
+            {
+                int nrow = row + dr[i];
+                int ncol = col + dc[i];
+                if (ncol >= 0 && nrow >= 0 && nrow < n && ncol < n && grid[nrow][ncol] == 1)
+                {
+                    int node = row * n + col;
+                    int nNode = nrow * n + ncol;
+                    dj.unionBySize(node, nNode);
+                }
+            }
+        }
+    }
+    // brute forcing every zero cell(we are not actually chaning a 0->1, but adding +1 to the sum)
+    /*
+    if we are at zero cell, we check the neigbours of it, if they are 1 we add the node's parent
+    to out set( set to avoid adding two same  ultimate parents)
+    after checking all four, we add the size of components whoose parent are in our set
+    we also add +1 to final sum(the 0 will also turn into 1(virtually no actually))
+    we maximise this sum
+    */
+    int maxi = 0;
+    for (int row = 0; row < n; row++)
+    {
+        for (int col = 0; col < n; col++)
+        {
+            if (grid[row][col] == 1)
+            {
+                continue;
+            }
+            set<int> st;
+
+            for (int i = 0; i < 4; i++)
+            {
+                int nrow = row + dr[i];
+                int ncol = col + dc[i];
+                if (ncol >= 0 && nrow >= 0 && nrow < n && ncol < n && grid[nrow][ncol] == 1)
+                {
+                    int nNode = nrow * n + ncol;
+                    st.insert(dj.findPar(nNode));
+                }
+            }
+            int sum = 0;
+            for (auto it : st)
+            {
+                sum += dj.size[it];
+            }
+            maxi = max(sum + 1, maxi);
+        }
+    }
+    return maxi;
+    
+}
