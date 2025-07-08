@@ -1,0 +1,62 @@
+notes: right->LSB  left->MSB
+right to left indexing, starting from 0
+
+x>>y means number x will be right shifted y times
+x<<y means number x will be left  shifted y times
+
+x>>y is mathmatically equal to x/pow(2,y)  //x by 2 raised to power y
+x<<y is mathmatically equal to x* pow(2,y)
+
+if(num&1)  means if(num is odd) because oth bit of a odd num is always set
+
+
+1) swap two var withou using third var
+a=a^b
+b=a^b
+a=a^b
+
+2)extract ith bit of a num
+ith bit= (1<<i)&num  //1 is left shifted to ith bit, then we perform an & operator
+another way
+ith bit= (num>>i)&1//num is right shifted till ith bit becomes 0th bit, then we do &with 1
+
+3)set ith bit of num
+num= (1<<i)|num
+
+4)clear ith bit of num
+num=num&~(1<<i)
+
+5)toggle the ith bit of num
+num=num^(1<<i)
+
+6)clear right most set bit of num 
+num= num & (num-1)
+
+7)check if num is power of 2
+if(num&num-1==0) then it is a power of 2
+
+8)count set bit in a num
+
+while(n>0)
+{
+    if(n is odd){ cnt++; }
+    n=n/2;
+}
+    
+faster way(bit operations are faster)
+while(n>0)
+{
+    if(n&1){cnt++} // if(n&1) same as if(n is odd) 
+    n=n>>1;//n=n>>1 same as n=n/2
+}
+another way(better)
+
+while(n>0)
+{
+    n=n&n-1;
+    cnt++;
+}
+
+
+inbuilt function
+__builtin_popcount(n);
