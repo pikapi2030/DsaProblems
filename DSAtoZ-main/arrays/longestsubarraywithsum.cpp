@@ -142,7 +142,7 @@ rhe sub array
 int lsopti(vector<int> v, int k)
 {
     int n = v.size();
-    int i = 0, j = 0; // i moves when sum<k k moves when sum>k
+    int i = 0, j = 0; // i moves when sum<k j moves when sum>k
     int sum = v[0];
     int length = 0;
     while (i < n)
