@@ -10,7 +10,7 @@ node, we reduce it's indegree by one, if neighbour's indegree becomes zero(after
 then we push it into the queue(as we are sure that no node is before that,
 as we have taken all nodes which were before our neighbour into ordering already)
 */
-//! If our ans vector has size less than n than aour graph has cycle
+//! If our ans vector has size less than n than our graph has cycle
 
 vector<int> TopoBFS(vector<vector<int>> adjL)
 {
