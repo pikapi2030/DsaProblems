@@ -15,5 +15,5 @@ undirected graph is by itself a cycle
 There is no point of finding shortest path in an undirected graph with negative weight
 (answer is -infinity)
 
-to Detect negative ccles in a directed graph we use Bellman Ford algorithm
+to Detect negative cycles in a directed graph we use Bellman Ford algorithm
 

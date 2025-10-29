@@ -7,7 +7,7 @@ x<<y means number x will be left  shifted y times
 x>>y is mathmatically equal to x/pow(2,y)  //x by 2 raised to power y
 x<<y is mathmatically equal to x* pow(2,y)
 
-if(num&1)  means if(num is odd) because oth bit of a odd num is always set
+if(num&1)  means if(num is odd) because 0th bit of a odd num is always set
 
 
 1) swap two var withou using third var

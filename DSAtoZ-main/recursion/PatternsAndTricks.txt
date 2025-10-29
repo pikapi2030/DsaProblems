@@ -1,5 +1,5 @@
 1)
-if we need to count number of sunsequences with sum=k
+if we need to count number of subsequences with sum=k
 
 if(base case)
 {
@@ -61,7 +61,7 @@ Pick not pick aproach is better in calculating
  it can do it in O(1) SPACE(ignoring recursion stack space), without even generating the subsets
  T.C O(2^n) instead of O(n*2^n) (extra n to perform that mathmatical operation on every subset)
 
-NOTE:Do no directly apply DP in this aproach, apply DP where return 0; in base case(explained below)
+NOTE:Do not directly apply DP in this aproach, apply DP where return 0; in base case(explained below)
 HERE * REFERS AS ANY BINARY OPERATOR (+,-,xor ..)
 
 if(index==n){return ans;}

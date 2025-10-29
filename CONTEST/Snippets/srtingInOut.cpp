@@ -12,15 +12,13 @@ while(t--)
  string s;
  for(int i=0;i<n;i++)
  {
-    cin>>s[i];
- }
- 
-
+ cin>>s;
  for(int i=0;i<n;i++)
  {
     cout<<" "s[i]<<" ";
  }   
  
 
+}
 }
 }

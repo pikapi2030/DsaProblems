@@ -5,7 +5,7 @@ Node is a custom defined data type
 we have to implement linked list using class
 
 a Node is custom defined data type(implemented via class)
- which stores value and address of the next Node
+which stores value and address of the next Node
 if no next Node is present, it stores null as a address
 
 
@@ -13,7 +13,7 @@ if no next Node is present, it stores null as a address
 
 class Node
 {
-    public:
+public:
 int data;
  Node* next;//stores address of the next Node, so is of Node* data type(JESE INT KE ADDRESS KO STORE KARANE KE LIYE INT * CHAIYE)
 
@@ -29,7 +29,7 @@ Node(int data1)
 
 /*conversion of array to ll
 
-TO CONVERT A ARRAY TO LL:-
+TO CONVERT An ARRAY TO LL:-
 we use three pointers of data type Node to implement LL in array
 
 the value stored by Node is "data", the address is stored by Node is "next"( var name )
