@@ -60,3 +60,7 @@ while(n>0)
 
 inbuilt function
 __builtin_popcount(n);
+
+
+9) isolate the rightmost set bit in a num
+numWhereOnlyRightMostSetBitOfxIsSet =x&(-x)
