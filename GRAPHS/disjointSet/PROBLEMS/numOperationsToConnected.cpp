@@ -93,7 +93,7 @@ Return the minimum number of times you need to do this in order to make all the 
 connected. If it is not possible, return -1
 */
 /*approach
-we know that to  coonect n  componets we min need n-1 edges
+we know that to  connect n  componets we min need n-1 edges
 but we can not create new edges but pick them from within componets, we should pick such edges
 that upon removing, does not split the component any more(or disconnect the graph)
 those edges are extra edges,
