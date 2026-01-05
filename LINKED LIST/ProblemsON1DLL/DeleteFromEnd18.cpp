@@ -14,7 +14,7 @@ and return its head.
 */
 
 /*BRUTE
-calculate lenght of LL, then delete the lenght-nth node from the start
+calculate lenght of LL, then delete the nth node from the start
 */
 
 int LenghtOfLL(ListNode*head)

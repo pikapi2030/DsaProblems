@@ -33,7 +33,7 @@ T.C O(N)
     }
 
 /*BRUTE
-we solve this using hashmap, we keep node* as a key anf bool as the value, if visited
+we solve this using hashmap, we keep node* as a key and bool as the value, if visited
 if change value to 1, we also check at every iteration, if address is visited or not
 
 T.C O(2N*Log (n))
