@@ -23,7 +23,7 @@ if our high=INT_MAX then (low+INT_MAX)/2 gives overflow error
 
 use long long for high and low  to solve this issue
 OR
- right mid = low+(high-low)/2 (mathematically gives same value as (low+high)/2)
+right mid = low+(high-low)/2 (mathematically gives same value as (low+high)/2)
 prevents overflow by doing (high-low)/2+low  
 
 */

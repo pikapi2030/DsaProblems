@@ -58,8 +58,8 @@ int lb_index=lower_bound(v.begin(),v.end())-v.begin();
 /*upper bound
 it is very similar to lb just instead of v[index]>=target where index is smallest possible
 it returns index where v[index]>target where index is SMALLEST POSSIBLE
-JUST EQUaL SIGHN IS REMOVED
-code is similar with equal sighn removed
+JUST EQUAL SIGN IS REMOVED
+code is similar with equal sign removed
 */
 
 int UB(vector<int>v,int target)
