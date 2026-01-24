@@ -3,23 +3,12 @@ using namespace std;
 
 /*lower bound algo
 
-array given is sorted
-it returns smallest index for a target x such that v[index]>=x
-if x is not present in array, it rturns hypothetical index v.size()(return size)
+std::lower_bound is a Standard Template Library (STL) algorithm used to find the 
+first position where a given value can be inserted in a sorted range without 
+violating the order. In simple terms, it returns an iterator pointing to the first 
+element that is greater than or equal to (>=) the given value.
 */
 
-/*
-we have low,mid,high pointers and a target and we do somthing similar to BS
-we maintain a ans var initialised to v.size()(for target not found)
-if v[mid]>=x then update ans=mid and trim our search space
-now we need to search a index which is smaller to this mid which fulfills our condtion
-to we will bring high to mid-1
-
-if V[mid]<x then we will reduce our search space and bring lefto to mid+1
-as we are sure that left of mid cannot contain something greater of equal to x
-
-T.C same as BS
-*/
 
 int LB(vector<int>v,int target)
 {
@@ -56,11 +45,9 @@ int lb_index=lower_bound(v.begin(),v.end())-v.begin();
 
 
 /*upper bound
-it is very similar to lb just instead of v[index]>=target where index is smallest possible
-it returns index where v[index]>target where index is SMALLEST POSSIBLE
-JUST EQUAL SIGN IS REMOVED
-code is similar with equal sign removed
-*/
+upper_bound is a Standard Template Library (STL) function used to find the first element 
+that is strictly greater than a given value in a sorted range. It is commonly used for 
+efficient searching and range queries in sorted containers.*/
 
 int UB(vector<int>v,int target)
 {
