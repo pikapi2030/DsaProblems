@@ -5,4 +5,9 @@ if we are doinf dp[index][...] replace it with cur[...]
 at end do prev=cur 
 
 handling -ve indexes while doing tabulation
-if this occurs we will simply jisft the indexes to offset the -ve
+if this occurs we will simply just shift the indexes to offset the -ve
+
+memoisation does not fill the whole dp table, if we need multiple states of dp table to solve 
+somthing, use tabulation as it completely fiils the dp table
+example problem:2035, assuming only positive integers
+check problem name:- partitionArrayIntoSubset.cpp
