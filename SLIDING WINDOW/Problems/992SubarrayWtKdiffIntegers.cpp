@@ -38,7 +38,7 @@ int subarrayWithLessThanKdistinct(vector<int> &v, int k)
             left++;
         }
         ans += right - left + 1;
-        right++;    ww
+        right++;    
     }
     return ans;
 }
