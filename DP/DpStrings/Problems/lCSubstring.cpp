@@ -17,7 +17,7 @@ the dp table
 */
 
 
-int Tabulation(string a, string b)
+int LongestCommonSubstring(string a, string b)
 {
     int ans=0;
     int n = a.size();
